@@ -1,4 +1,5 @@
 SHELL := /bin/bash
+BIB_PROG := biber
 
 SOURCES = Makefile cv.tex my-papers.bib awesome-cv.cls cv/*
 CVTEXNAME = cv
@@ -6,7 +7,7 @@ CVTEXNAME = cv
 all: $(CVTEXNAME).pdf
 $(CVTEXNAME).pdf: $(CVTEXNAME).tex $(SOURCES)
 	xelatex $(CVTEXNAME)
-	biber $(CVTEXNAME)
+	$(BIB_PROG) $(CVTEXNAME)
 	xelatex $(CVTEXNAME)
 	xelatex $(CVTEXNAME)
 clean:

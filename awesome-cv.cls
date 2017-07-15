@@ -706,13 +706,14 @@
 %                Bibliography
 %-------------------------------------------------------------------------------
 %\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
-\RequirePackage[ % BibLaTeX
+\usepackage[ % BibLaTeX
 	sorting=ydnt, % Sorts entries by year (descending order), name, title
 	style=verbose,
-	doi=false,
-	isbn=true,
-	url=false,
-	eprint=false,
+	% doi=true, % These options commented out since they do nothing with custom driver
+	% isbn=true,
+	% url=false,
+	% eprint=false,
+        natbib=true,
 	backref = false, % include back references in bibliography
 	maxcitenames=3, % affects only the citations in the document body
 	maxbibnames=99, % affects only the bibliography, pass 99 to print all
@@ -720,6 +721,9 @@
 	block=none,
 	backend=biber % {Options: bibtex, biber}
 	]{biblatex}
+
+        \DeclareNameAlias{author}{first-last}
+        \urlstyle{same}
 
 % Avoid splitting entries across page break (only for 3 or fewer lines)
 % Tip: http://tex.stackexchange.com/a/51261
@@ -753,6 +757,8 @@
     \setunit*{\addcomma\space}%
     \printfield{year}%
     \newunit%
+    \printfield{doi}%
+    \newunit%
   }
   \par\vspace{0.3\baselineskip}
 }
@@ -772,6 +778,8 @@
     \setunit{\addcomma\space}%
     \printlist{location}%
     \newunit%
+    \printfield{doi}%
+    \newunit%
   }
   \par\vspace{0.3\baselineskip}
 }
@@ -790,6 +798,8 @@
     \printfield{year}%
     \setunit{\addcomma\space}%
     \printlist{location}%
+    \newunit%
+    \printfield{doi}%
     \newunit%
   }
   \par\vspace{0.3\baselineskip}
@@ -812,6 +822,8 @@
     \setunit{\addcomma\space}%
     \printlist{location}%
     \newunit%
+    \printfield{doi}%
+    \newunit%
   }
   \par\vspace{0.3\baselineskip}
 }
@@ -831,21 +843,23 @@
     \setunit{\addcomma\space}%
     \printfield{year}%
     \newunit%
+    \printfield{doi}%
+    \newunit%
   }
   \par\vspace{0.3\baselineskip}
 }
 
 % New syntax for flexible backend (BibLaTeX > v3.3)
-\DeclareNameFormat{author}{%
-  \fontsize{9pt}{1em}\bodyfont%
-  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
-  \nameparts{#1}%
-  \ifthenelse{\value{listcount}=1}
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
-    \namepartfamily}%
-    {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
-    \namepartfamily}%
-  \ifthenelse{\value{listcount}<\value{liststop}}
-  {\addcomma\space}
-  {}
-}
+% \DeclareNameFormat{author}{%
+%   \fontsize{9pt}{1em}\bodyfont%
+%   \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+%   \nameparts{#1}%
+%   \ifthenelse{\value{listcount}=1}
+%     {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+%     \namepartfamily}%
+%     {\ifblank{\namepartgiven}{}{\namepartgiven\space}%
+%     \namepartfamily}%
+%   \ifthenelse{\value{listcount}<\value{liststop}}
+%   {\addcomma\space}
+%   {}
+% }
