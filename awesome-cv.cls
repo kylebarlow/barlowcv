@@ -169,7 +169,7 @@
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-]{ZillaSlab}
+]{Roboto}
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
@@ -177,7 +177,7 @@
   ItalicFont=*-LightItalic,
   BoldFont=*-Medium,
   BoldItalicFont=*-MediumItalic,
-]{ZillaSlab}
+]{Roboto}
 
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
