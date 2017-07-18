@@ -394,6 +394,12 @@
 % Use to execute conditional statements by checking empty string
 \newcommand*{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+% Use to execute conditional statements by checking empty strings
+\newcommand*{\ifeitherempty}[4]{
+  \ifthenelse{\isempty{#1}}
+  {#3}
+  {\ifempty{#2}{#3}{#4}}
+}
 
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
@@ -616,7 +622,7 @@
 % Define a line of cv information(honor, award or something else)
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cvhonor}[4]{%
-  \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+  \honordatestyle{#4} & \honorpositionstyle{#1}\ifeitherempty{#1}{#2}{}{}\honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
 
 % Define an environment for cvskill
