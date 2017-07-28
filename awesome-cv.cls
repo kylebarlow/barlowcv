@@ -644,6 +644,7 @@
       \presentationlocationstyle{#4} & \presentationlocationstyle{#2} & \presentationlocationstyle{#3} \\
       \multicolumn{3}{L{\textwidth}}{\presentationtitlestyle{#1}}
     \end{tabular*}
+    \vspace{0.3mm}
   \end{center}
 }
 
@@ -761,7 +762,7 @@
    \widowpenalty10000
    \interlinepenalty5000}
 
-% Customized format, based on Fancy CV template created by Adrien Friggeri
+ % Customized format, based on Fancy CV template created by Adrien Friggeri
 \DeclareFieldFormat[article]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
 \DeclareFieldFormat[misc]{title}{#1\par}
@@ -769,14 +770,18 @@
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{11pt}{1em}\bodyfont%
+  \filbreak
   \printfield{title}%
   \newblock%
-  \printnames{author}%
+  {%
+    \fontsize{10pt}{1em}\bodyfontlight
+    \printnames{author}%
+  }
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{10pt}{1em}\bodyfontlight\color{graytext}%
     \usebibmacro{journal+issuetitle}%
     \setunit{\space}%
     \printfield{pages}%
@@ -798,18 +803,22 @@
     \newunit%
   }%
 
-  \par\vspace{0.3\baselineskip}
+  \par\vspace{-0.3\baselineskip}
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{11pt}{1em}\bodyfont%
+  \filbreak
   \printfield{title}%
   \newblock%
-  \printnames{author}%
+  {%
+    \fontsize{10pt}{1em}\bodyfontlight
+    \printnames{author}%
+  }
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{10pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
@@ -819,18 +828,23 @@
     \printfield{doi}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+
+  \par\vspace{-0.3\baselineskip}
 }
 
 \DeclareBibliographyDriver{incollection}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{11pt}{1em}\bodyfont%
+  \filbreak
   \printfield{title}%
   \newblock%
-  \printnames{author}%
+  {%
+    \fontsize{10pt}{1em}\bodyfontlight
+    \printnames{author}%
+  }
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{10pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit{\addcomma\space}%
     \printfield{year}%
@@ -840,18 +854,23 @@
     \printfield{doi}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+
+  \par\vspace{-0.3\baselineskip}
 }
 
 \DeclareBibliographyDriver{misc}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{11pt}{1em}\bodyfont%
+  \filbreak
   \printfield{title}%
   \newblock%
-  \printnames{author}%
+  {%
+    \fontsize{10pt}{1em}\bodyfontlight
+    \printnames{author}%
+  }
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{10pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{booktitle}%
     \setunit*{\addcomma\space}%
     \printfield{note}%
@@ -863,18 +882,23 @@
     \printfield{doi}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+
+  \par\vspace{-0.3\baselineskip}
 }
 
 \DeclareBibliographyDriver{report}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{11pt}{1em}\bodyfont%
+  \filbreak
   \printfield{title}%
   \newblock%
-  \printnames{author}%
+  {%
+    \fontsize{10pt}{1em}\bodyfontlight
+    \printnames{author}%
+  }
   \par%
   \newblock%
   {%
-    \fontsize{8pt}{1em}\bodyfontlight\color{graytext}%
+    \fontsize{10pt}{1em}\bodyfontlight\color{graytext}%
     \printfield{type}%
     \setunit{\space}%
     \printfield{number}%
@@ -884,7 +908,8 @@
     \printfield{doi}%
     \newunit%
   }
-  \par\vspace{0.3\baselineskip}
+
+  \par\vspace{-0.3\baselineskip}
 }
 
 % New syntax for flexible backend (BibLaTeX > v3.3)
